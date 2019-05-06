@@ -1,0 +1,23 @@
+<%= form_with(model: Article.new,local: true, url: articles_path) do |form| %>
+<% if @articles.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @articles.errors.count %>errors occurred.</h2>
+      <ul>
+
+      <% @articles.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="article_title">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div><br>
+  <div class="article_title">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+  <br>
+  <%= form.submit %>
+<% end %>
