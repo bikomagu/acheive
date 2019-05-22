@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
   def create
     @articles=Article.new(article_params)
     if @articles.save
-      redirect_to new_article_path, notice: "created"
+      redirect_to articles_path, notice: "created"
     else
       render 'new'
     end
